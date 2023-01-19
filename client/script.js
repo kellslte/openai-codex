@@ -72,15 +72,18 @@ const handleSubmit = async (e) => {
 
   loader(messageDiv);
 
-  const response = await fetch("http://localhost:3000/api/v1", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      prompt: data.get("prompt"),
-    }),
-  });
+  const response = await fetch(
+    "https://openaai-codex-backend.onrender.com/api/v1",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        prompt: data.get("prompt"),
+      }),
+    }
+  );
 
   clearInterval(loadinterval);
 
